@@ -1,6 +1,5 @@
 "use client";
 import * as React from "react";
-import PropTypes from "prop-types";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -15,7 +14,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
-import { Container, Slide, useScrollTrigger } from "@mui/material";
+import { Slide, useScrollTrigger } from "@mui/material";
 
 const drawerWidth = 240;
 const navItems = ["Home", "About", "Contact"];
@@ -36,7 +35,7 @@ function HideOnScroll(props) {
   );
 }
 
-function DrawerAppBar(props) {
+const DrawerAppBar = (props) => {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
 
@@ -47,7 +46,7 @@ function DrawerAppBar(props) {
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: "center" }}>
       <Typography variant="h6" sx={{ my: 2 }}>
-        MUI
+        J2911-Realty
       </Typography>
       <Divider />
       <List>
@@ -66,12 +65,12 @@ function DrawerAppBar(props) {
     window !== undefined ? () => window().document.body : undefined;
 
   return (
-    <>
+    <Box>
       <CssBaseline />
       <HideOnScroll {...props}>
         <Box sx={{ display: "flex" }}>
           <CssBaseline />
-          <AppBar component="nav">
+          <AppBar component="nav" color="primary">
             <Toolbar>
               <IconButton
                 color="inherit"
@@ -87,7 +86,7 @@ function DrawerAppBar(props) {
                 component="div"
                 sx={{ flexGrow: 1, display: { xs: "none", sm: "block" } }}
               >
-                MUI
+                J2911-Realty
               </Typography>
               <Box sx={{ display: { xs: "none", sm: "block" } }}>
                 {navItems.map((item) => (
@@ -120,28 +119,8 @@ function DrawerAppBar(props) {
           </Box>
         </Box>
       </HideOnScroll>
-      <Container>
-        <Box sx={{ my: 2 }}>
-          {[...new Array(12)]
-            .map(
-              () => `Cras mattis consectetur purus sit amet fermentum.
-Cras justo odio, dapibus ac facilisis in, egestas eget quam.
-Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
-Praesent commodo cursus magna, vel scelerisque nisl consectetur et.`
-            )
-            .join("\n")}
-        </Box>
-      </Container>
-    </>
+    </Box>
   );
-}
-
-DrawerAppBar.propTypes = {
-  /**
-   * Injected by the documentation to work in an iframe.
-   * You won't need it on your project.
-   */
-  window: PropTypes.func,
 };
 
 export default DrawerAppBar;
