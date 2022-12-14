@@ -1,5 +1,7 @@
 "use client";
 import * as React from "react";
+import Image from "next/image";
+
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -15,6 +17,8 @@ import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import { Slide, useScrollTrigger } from "@mui/material";
+
+import logo from '../../public/assets/images/logo.png'
 
 const drawerWidth = 240;
 const navItems = ["Home", "About", "Contact"];
@@ -46,14 +50,14 @@ const DrawerAppBar = (props) => {
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: "center" }}>
       <Typography variant="h6" sx={{ my: 2 }}>
-        J2911-Realty
+        
       </Typography>
       <Divider />
       <List>
         {navItems.map((item) => (
           <ListItem key={item} disablePadding>
             <ListItemButton sx={{ textAlign: "center" }}>
-              <ListItemText primary={item} />
+              <ListItemText primary={item} color="black" />
             </ListItemButton>
           </ListItem>
         ))}
@@ -84,9 +88,9 @@ const DrawerAppBar = (props) => {
               <Typography
                 variant="h6"
                 component="div"
-                sx={{ flexGrow: 1, display: { xs: "none", sm: "block" } }}
+                sx={{ flexGrow: 1, display: { xs: "none", sm: "block" }, color: "black" }}
               >
-                J2911-Realty
+                <Image src={logo} sx={{ height: "10px", width: "10px"}} />
               </Typography>
               <Box sx={{ display: { xs: "none", sm: "block" } }}>
                 {navItems.map((item) => (
